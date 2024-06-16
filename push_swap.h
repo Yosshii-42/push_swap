@@ -26,10 +26,17 @@ void    list_swap(t_list **lst);
 void    list_push(t_list **lst1, t_list **lst2);
 void  rotate(t_list **lst);
 void  rev_rotate(t_list **lst);
-void    ss(t_list **lst_a, t_list **lst_b);
-void    rr(t_list **lst_a, t_list **lst_b);
-void    rrr(t_list **lst_a, t_list **lst_b);
-void    pa(t_list **lst_a, t_list **lst_b);
-void    pb(t_list **lst_a, t_list **lst_b);
+void    sa(t_list **la);
+void    sb(t_list **lb);
+void    ss(t_list **la, t_list **lb);
+void    pa(t_list **la, t_list **lb);
+void    pb(t_list **la, t_list **lb);
+void    ra(t_list **la);
+void    rb(t_list **lb);
+void    rr(t_list **la, t_list **lb);
+void    rra(t_list **la);
+void    rrb(t_list **lb);
+void    rrr(t_list **la, t_list **lb);
+
 
 #endif

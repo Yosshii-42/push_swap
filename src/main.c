@@ -17,48 +17,43 @@ void  make_stack(t_list **lst_a, int argc, char **argv)
 
 int main(int argc, char **argv)
 {
-    t_list  *lst_a;
-    t_list  *lst_b;
+    t_list  *la;
+    t_list  *lb;
  
-    lst_a = NULL;
-    lst_b = NULL;
+    la = NULL;
+    lb = NULL;
     if (argc >= 2)
     {
-        make_stack(&lst_a, argc, argv);
-        if (!lst_a)
+        make_stack(&la, argc, argv);
+        if (!la)
             return (1);
-        pa(&lst_a, &lst_b);
-        pa(&lst_a, &lst_b);
-        pa(&lst_a, &lst_b);
-        pa(&lst_a, &lst_b);
-        pa(&lst_a, &lst_b);
-        pa(&lst_a, &lst_b);
-        // pb(&lst_b, &lst_a);
-        // pb(&lst_b, &lst_a);
-        // pa(&lst_a, &lst_b);
-        // pa(&lst_a, &lst_b);
-        // rotate(&lst_b);
-        // rotate(&lst_b);
-        // rev_rotate(&lst_a);
-        // list_swap(&lst_b);
-        // list_swap(&lst_a);
-        // ss(&lst_a, &lst_b);
-        rrr(&lst_a, &lst_b);
+        pa(&la, &lb);
+        pa(&la, &lb);
+        pa(&la, &lb);
+        pa(&la, &lb);
+        pa(&la, &lb);
+        // ss(&la, &lb);
+        // ra(&la);
+        // rb(&lb);
+        // rr(&la, &lb);
+        // rra(&la);
+        // rrb(&lb);
+        rrr(&la, &lb);
         t_list *ptr;
-        ptr = lst_a;
-        while (lst_a)
+        ptr = la;
+        while (la)
         {
-            printf("lst_a->num = %d\n", lst_a->num);
-            lst_a = lst_a->next;
-            if (lst_a == ptr)
+            printf("la->num = %d\n", la->num);
+            la = la->next;
+            if (la == ptr)
                 break ;
         }
-        ptr = lst_b;
-        while (lst_b)
+        ptr = lb;
+        while (lb)
         {
-            printf("lst_b->num = %d\n", lst_b->num);
-            lst_b = lst_b->next;
-            if (lst_b == ptr)
+            printf("lb->num = %d\n", lb->num);
+            lb = lb->next;
+            if (lb == ptr)
                 break ;
         }
     }
