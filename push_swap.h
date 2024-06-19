@@ -16,12 +16,23 @@ typedef struct  s_list
     int             index;
 }               t_list;
 
+int	check_argv(int argc, char **argv);
+int	check_number(long nbr);
+int	is_space(char c);
+void	compression(t_list **la, int size);
+void	ft_error(t_list **lst);
+int	*set_tab(int argc, char **argv, int *tab);
+void	make_stack(t_list **la, int argc, char **argv);
+int	check_order(int size, t_list **la);
+int	sort_and_check(int *tab, int size);
+
 t_list    *list_new(int number);
 void    list_add(t_list **lst, t_list *new);
 t_list  *list_last(t_list *lst);
 int list_size(t_list **lst);
 void    list_delone(t_list *lst);
-void    list_clear(t_list **lst, void (*del)(void*));
+void    list_clear(t_list **lst);
+
 void    list_swap(t_list **lst);
 void    list_push(t_list **lst1, t_list **lst2);
 void  rotate(t_list **lst);
@@ -38,5 +49,11 @@ void    rra(t_list **la);
 void    rrb(t_list **lb);
 void    rrr(t_list **la, t_list **lb);
 
+void    sort_order(int size, t_list **la, t_list **lb);
+void    operation_3(t_list **la);
+void    operation_4(t_list **la, t_list **lb, int size);
+// int     find_min(t_list **lst);
+// int     find_max(t_list **lst);
+int     find_order(t_list **lst, int index, int size);
 
 #endif

@@ -1,11 +1,16 @@
 NAME	=	push_swap
 CFLAGS	=	-Wall -Wextra -Werror -g
+# CFLAGS  += -fsanitize=address
 SRCS	=	src/main.c \
+			src/initial_utilities.c \
 			src/list.c \
 			src/move_nodes.c \
 			src/order_p_s.c \
 			src/order_rotate.c \
-			src/order_rev.c
+			src/order_rev.c \
+			src/sort.c
+			
+			# src/index.c
 OBJS	=	$(SRCS:.c=.o)
 FRAC_INC = push_swap.h
 LIBFT	= ./libft/libft.a
@@ -15,8 +20,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS) $(FRAC_INC)
 	make -C ./libft
-	# make -C minilibx_opengl
-	$(CC) $(OBJS) $(LIBFT) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 %.o: %.c
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
