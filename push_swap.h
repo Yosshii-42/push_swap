@@ -24,7 +24,7 @@ void	ft_error(t_list **lst);
 int	*set_tab(int argc, char **argv, int *tab);
 void	make_stack(t_list **la, int argc, char **argv);
 int	check_order(int size, t_list **la);
-int	sort_and_check(int *tab, int size);
+int	check_double(int *tab, int size);
 
 t_list    *list_new(int number);
 void    list_add(t_list **lst, t_list *new);
@@ -40,8 +40,8 @@ void  rev_rotate(t_list **lst);
 void    sa(t_list **la);
 void    sb(t_list **lb);
 void    ss(t_list **la, t_list **lb);
-void    pa(t_list **la, t_list **lb);
-void    pb(t_list **la, t_list **lb);
+void    pa(t_list **lst1, t_list **lst2);
+void    pb(t_list **lst1, t_list **lst2);
 void    ra(t_list **la);
 void    rb(t_list **lb);
 void    rr(t_list **la, t_list **lb);
@@ -51,9 +51,9 @@ void    rrr(t_list **la, t_list **lb);
 
 void    sort_order(int size, t_list **la, t_list **lb);
 void    operation_3(t_list **la);
-void    operation_4(t_list **la, t_list **lb, int size);
-// int     find_min(t_list **lst);
-// int     find_max(t_list **lst);
-int     find_order(t_list **lst, int index, int size);
+void    operation_4(t_list **la, t_list **lb, int index);
+void	operation_5(t_list **la, t_list **lb);
+void	operation_x(t_list **la, t_list **lb, int size);
+int     find_index(t_list **lst, int index, int size);
 
 #endif
