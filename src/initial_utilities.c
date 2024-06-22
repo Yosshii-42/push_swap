@@ -22,7 +22,7 @@ int	is_space(char c)
 	return ((c >= '\t' && c <= '\r') || c == ' ');
 }
 
-int	sort_and_check(int *tab, int size)
+int	check_double(int *tab, int size)
 {
 	int	i;
 	int	j;
@@ -65,5 +65,5 @@ void	ft_error(t_list **lst)
 {
 	if (*lst)
 		list_clear(lst);
-	ft_putstr_fd("Error\n", 1);
+	ft_putstr_fd("Error\n", 2);
 }

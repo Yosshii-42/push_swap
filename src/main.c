@@ -52,7 +52,7 @@ int	*set_tab(int argc, char **argv, int *tab)
 		tab[i] = num;
 		i++;
 	}
-	if (!sort_and_check(tab, i))
+	if (!check_double(tab, i))
 		return (free(tab), NULL);
 	return (tab);
 }
@@ -138,19 +138,20 @@ int	main(int argc, char **argv)
 		// rra(&la);
 		// rrb(&lb);
 		// rrr(&la, &lb);
-		t_list	*ptr;
-		ptr = la;
-		while (la)
-		{
-			printf("la->num = %d, la->index = %d\n", la->num, la->index);
-			la = la->next;
-			if (la == ptr)
-				break ;
-		}
+		// t_list	*ptr;
+		// ptr = la;
+		// while (la)
+		// {
+		// 	printf("la->num = %d, la->index = %d\n", la->num, la->index);
+		// 	la = la->next;
+		// 	if (la == ptr)
+		// 		break ;
+		// }
 		// ptr = lb;
+		// printf("\n");
 		// while (lb)
 		// {
-		// 	printf("lb->num = %d\n", lb->num);
+		// 	printf("lb->num = %d lb->index = %d\n", lb->num, lb->index);
 		// 	lb = lb->next;
 		// 	if (lb == ptr)
 		// 		break ;
@@ -160,3 +161,8 @@ int	main(int argc, char **argv)
 		return (ft_putstr_fd("Error\n", 1) , 1);
 	free(tab);
 }
+
+// __attribute__((destructor)) static void destructor()
+// {
+//     system("leaks -q a.out");
+// }

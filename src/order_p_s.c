@@ -31,14 +31,14 @@ void	ss(t_list **la, t_list **lb)
 	write(1, "ss\n", 3);
 }
 
-void	pa(t_list **la, t_list **lb)
+void	pa(t_list **lst1, t_list **lst2)
 {
-	list_push(lb, la);
+	list_push(lst1, lst2);
 	write(1, "pa\n", 3);
 }
 
-void	pb(t_list **la, t_list **lb)
+void	pb(t_list **lst1, t_list **lst2)
 {
-	list_push(la, lb);
+	list_push(lst1, lst2);
 	write(1, "pb\n", 3);
 }
