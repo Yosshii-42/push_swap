@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yotsurud <yotsurud@student.42tokyo.>       +#+  +:+       +#+        */
+/*   By: yotsurud <yotsurud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 20:03:18 by yotsurud          #+#    #+#             */
-/*   Updated: 2024/06/16 20:03:32 by yotsurud         ###   ########.fr       */
+/*   Updated: 2024/06/26 15:40:38 by yotsurud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,27 +42,10 @@ void	list_add(t_list **lst, t_list *new)
 	{
 		last = (*lst)->pre;
 		last->next = new;
-		(*lst)->pre = new;
 		new->pre = last;
-		new->next = (*lst);
-		*lst = new;
+		new->next = *lst;
+		(*lst)->pre = new;
 	}
-}
-
-t_list	*list_last(t_list *lst)
-{
-	t_list	*first;
-
-	if (!lst)
-		return (NULL);
-	first = lst;
-	while (lst->next)
-	{
-		lst = lst->next;
-		if (lst == first)
-			break ;
-	}
-	return (lst);
 }
 
 int	list_size(t_list **lst)
@@ -98,8 +81,8 @@ void	list_clear(t_list **lst)
 		(*lst)->num = 0;
 		(*lst)->index = 0;
 		*lst = (*lst)->next;
-		ptr = NULL;
 		free(ptr);
+		ptr = NULL;
 		if (*lst == first)
 			break ;
 	}

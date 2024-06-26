@@ -20,6 +20,7 @@ SRCS	= ft_isalpha.c \
 		  ft_memcmp.c \
 		  ft_strnstr.c \
 		  ft_atoi.c \
+		  ft_atol.c \
 		  ft_calloc.c \
 		  ft_strdup.c \
 		  ft_substr.c \
@@ -44,9 +45,11 @@ SRCS	= ft_isalpha.c \
 # 		  ft_lstmap.c
 SRCS_PRINTF = ./printf/ft_printf.c \
 			  ./printf/ft_put_and_count.c
+SRCS_GNL	= ./get_next_line/get_next_line.c
 OBJS	= $(SRCS:.c=.o)
 OBJS_B	= $(SRCS_B:.c=.o)
 OBJS_PRINTF = $(SRCS_PRINTF:.c=.o)
+OBJS_GNL	= $(SRCS_GNL:.c=.o)
 CC		= cc
 FLAGS	= -Wall -Wextra -Werror 
 HEADDIR	= ./includes
@@ -54,9 +57,9 @@ HEADDIR	= ./includes
 %.o:%.c
 	$(CC) $(FLAGS) -I$(HEADDIR) -c $< -o $@
 
-$(NAME): $(OBJS) $(OBJS_B) $(OBJS_PRINTF)
+$(NAME): $(OBJS) $(OBJS_B) $(OBJS_PRINTF) $(OBJS_GNL)
 	# make -C ./printf
-	ar rcs $(NAME) $(OBJS) $(OBJS_B) $(OBJS_PRINTF)
+	ar rcs $(NAME) $(OBJS) $(OBJS_B) $(OBJS_PRINTF) $(OBJS_GNL)
 
 # bonus: $(NAME) $(OBJS_B) 
 # 	touch bonus
@@ -65,7 +68,7 @@ $(NAME): $(OBJS) $(OBJS_B) $(OBJS_PRINTF)
 all: $(NAME)
 
 clean:
-	rm -f $(OBJS) $(OBJS_B) $(OBJS_PRINTF)
+	rm -f $(OBJS) $(OBJS_B) $(OBJS_PRINTF) $(OBJS_GNL)
 
 fclean: clean
 	rm -f $(NAME)
