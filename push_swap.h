@@ -6,7 +6,7 @@
 /*   By: yotsurud <yotsurud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 16:13:02 by yotsurud          #+#    #+#             */
-/*   Updated: 2024/06/26 15:42:28 by yotsurud         ###   ########.fr       */
+/*   Updated: 2024/06/26 19:41:56 by yotsurud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,36 +30,23 @@ typedef struct s_list
 	int				index;
 }				t_list;
 
-// enum {
-// 	PA = 1,
-// 	PB = 2,
-// 	SA = 10,
-// 	SB = 20,
-// 	SS = 30,
-// 	RA = 100,
-// 	RB = 200,
-// 	RR = 300,
-// 	RRA = 1000,
-// 	RRB = 2000,
-// 	RRR = 3000
-// };
-
 // check args
 int		check_argv(int argc, char **argv);
 int		check_number(long nbr);
 int		is_space(char c);
 int		check_order(int size, t_list **la);
-int		check_double(int *tab, int size);
+int		check_double(t_list **lst);
 
 // make stack & tab
 void	compression(t_list **la, int size);
-int		*set_tab(int argc, char **argv, int *tab);
-int		make_stack(t_list **la, int argc, char **argv);
+void	make_stack(t_list **la, int argc, char **argv);
+void	set_new_node(t_list **la, char *str);
 void	ft_error(t_list **lst);
 
 // list functions
 t_list	*list_new(int number);
-void	list_add(t_list **lst, t_list *new);
+void	list_add_front(t_list **lst, t_list *new);
+void	list_add_last(t_list **lst, t_list *new);
 int		list_size(t_list **lst);
 void	list_clear(t_list **lst);
 
@@ -92,7 +79,7 @@ void	operation_x(t_list **la, t_list **lb, int size);
 
 // utilities for operation
 int		find_index(t_list **lst, int index, int size);
-void	operation_pb(t_list **la, t_list **lb, int size);
+void	operation_pb(t_list **la, t_list **lb, int size, int range);
 void	rotate_n(t_list **la, t_list **lb, int n);
 void	rev_rotate_n(t_list **la, t_list **lb, int n);
 

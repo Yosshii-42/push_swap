@@ -6,7 +6,7 @@
 /*   By: yotsurud <yotsurud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 20:03:18 by yotsurud          #+#    #+#             */
-/*   Updated: 2024/06/26 15:40:38 by yotsurud         ###   ########.fr       */
+/*   Updated: 2024/06/26 18:28:28 by yotsurud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,13 @@ t_list	*list_new(int number)
 	return (new);
 }
 
-void	list_add(t_list **lst, t_list *new)
+void	list_add_front(t_list **lst, t_list *new)
+{
+	list_add_last(lst, new);
+	*lst = (*lst)->pre;
+}
+
+void	list_add_last(t_list **lst, t_list *new)
 {
 	t_list	*last;
 

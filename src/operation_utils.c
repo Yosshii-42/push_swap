@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operation_utilities.c                              :+:      :+:    :+:   */
+/*   operation_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yotsurud <yotsurud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 16:07:32 by yotsurud          #+#    #+#             */
-/*   Updated: 2024/06/24 21:00:24 by yotsurud         ###   ########.fr       */
+/*   Updated: 2024/06/26 19:46:44 by yotsurud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,12 @@ int	find_index(t_list **lst, int index, int size)
 	return (-1);
 }
 
-void	operation_pb(t_list **la, t_list **lb, int size)
+void	operation_pb(t_list **la, t_list **lb, int size, int range)
 {
-	int	range;
 	int	max;
 	int	quater_range;
 
-	range = size / 12;
-	quater_range = range * 0.85;
+	quater_range = range * 0.8;
 	max = INT_MIN;
 	while (size)
 	{

@@ -6,7 +6,7 @@
 /*   By: yotsurud <yotsurud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 19:50:28 by yotsurud          #+#    #+#             */
-/*   Updated: 2024/06/26 15:39:52 by yotsurud         ###   ########.fr       */
+/*   Updated: 2024/06/26 19:48:32 by yotsurud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	sort_operation(int size, t_list **la, t_list **lb)
 {
+	ft_printf("size = %d\n", size);
 	if (size == 2)
 	{
 		if ((*la)->index > (*la)->next->index)
@@ -35,47 +36,26 @@ int	main(int argc, char **argv)
 {
 	t_list	*la;
 	t_list	*lb;
-	int		*tab;
 	int		size;
 
 	la = NULL;
 	lb = NULL;
-	tab = NULL;
+	if (argc == 1)
+		return (1);
 	if (argc >= 2 && check_argv(argc, argv))
 	{
-		// tab = set_tab(argc, argv, tab);
-		// if (!tab)
-		// 	return (ft_putstr_fd("Error\n", 1), 1);
-		size = make_stack(&la, argc, argv);
+		make_stack(&la, argc, argv);
+		size = list_size(&la);
 		if (!size)
 			return (ft_putstr_fd("Eerror\n", 1), 1);
+		if (!check_double(&la))
+			return (ft_error(&la), 1);
 		compression(&la, size);
-		// t_list *ptr;
-		// ptr = la;
-		// while (la->next)
-		// {
-		// 	ft_printf("num = %d\n", la->num);
-		// 	la = la->next;
-		// 	if (la == ptr)
-		// 		break;
-		// }
 		if (check_order(size, &la))
 			return (0);
 		sort_operation(size, &la, &lb);
-		t_list *ptr;
-		ptr = la;
-		while (la->next)
-		{
-			ft_printf("num = %d\n", la->num);
-			la = la->next;
-			if (la == ptr)
-				break;
-		}
-		free(tab);
 		list_clear(&la);
 	}
-	else if (argc == 1)
-		return (0);
 	else
 		return (ft_putstr_fd("Error\n", 1), 1);
 }
@@ -84,4 +64,3 @@ int	main(int argc, char **argv)
 // {
 //     system("leaks -q push_swap");
 // }
-

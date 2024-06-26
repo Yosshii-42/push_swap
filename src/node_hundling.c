@@ -6,7 +6,7 @@
 /*   By: yotsurud <yotsurud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 20:11:18 by yotsurud          #+#    #+#             */
-/*   Updated: 2024/06/26 15:42:58 by yotsurud         ###   ########.fr       */
+/*   Updated: 2024/06/26 19:04:01 by yotsurud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	func_s(t_list **lst)
 		last = (*lst)->pre;
 		second = (*lst)->next;
 		third = (*lst)->next->next;
-		last->next = (*lst)->next;
-		third->pre = (*lst);
+		last->next = second;
+		third->pre = *lst;
 		(*lst)->next = third;
 		(*lst)->pre = second;
 		second->next = *lst;
@@ -48,14 +48,14 @@ void	func_p(t_list **lst1, t_list **lst2)
 	last = (*lst1)->pre;
 	if ((*lst1)->next == *lst1)
 	{
-		list_add(lst2, *lst1);
+		list_add_front(lst2, *lst1);
 		*lst1 = NULL;
 	}
 	else
 	{
 		last->next = (*lst1)->next;
 		((*lst1)->next)->pre = last;
-		list_add(lst2, *lst1);
+		list_add_front(lst2, *lst1);
 		*lst1 = last->next;
 	}
 }
