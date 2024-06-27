@@ -1,6 +1,6 @@
 NAME		= push_swap
 CFLAGS		= -Wall -Wextra -Werror -g
-# CFLAGS		+= -fsanitize=address
+CFLAGS		+= -fsanitize=address
 SRC_M		= src/main.c
 SRCS		= src/initialize_1.c \
 			  src/initialize_2.c \

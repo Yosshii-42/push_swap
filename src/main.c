@@ -6,7 +6,7 @@
 /*   By: yotsurud <yotsurud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 19:50:28 by yotsurud          #+#    #+#             */
-/*   Updated: 2024/06/26 19:48:32 by yotsurud         ###   ########.fr       */
+/*   Updated: 2024/06/27 16:48:03 by yotsurud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	sort_operation(int size, t_list **la, t_list **lb)
 {
-	ft_printf("size = %d\n", size);
 	if (size == 2)
 	{
 		if ((*la)->index > (*la)->next->index)
@@ -64,3 +63,13 @@ int	main(int argc, char **argv)
 // {
 //     system("leaks -q push_swap");
 // }
+
+	// t_list	*ptr;
+	// ptr = *la;
+	// while ((*la)->num)
+	// {
+	// 	ft_printf("%d\n", (*la)->num);
+	// 	*la = (*la)->next;
+	// 	if (*la == ptr)
+	// 		break ;
+	// }

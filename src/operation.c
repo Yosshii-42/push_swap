@@ -6,7 +6,7 @@
 /*   By: yotsurud <yotsurud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 16:11:22 by yotsurud          #+#    #+#             */
-/*   Updated: 2024/06/26 19:46:57 by yotsurud         ###   ########.fr       */
+/*   Updated: 2024/06/27 16:24:32 by yotsurud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,26 @@
 
 void	operation_3(t_list **la)
 {
-	int	index0;
 	int	index1;
 	int	index2;
 
-	index0 = (*la)->index;
 	index1 = (*la)->next->index;
 	index2 = (*la)->next->next->index;
-	if (index0 < index2 && index2 < index1)
+	if ((*la)->index < index2 && index2 < index1)
 	{
 		sa(la);
 		ra(la);
 	}
-	else if (index1 < index0 && index0 < index2)
+	else if (index1 < (*la)->index && (*la)->index < index2)
 		sa(la);
-	else if (index2 < index0 && index0 < index1)
+	else if (index2 < (*la)->index && (*la)->index < index1)
 		rra(la);
-	else if (index2 < index1 && index1 < index0)
+	else if (index2 < index1 && index1 < (*la)->index)
 	{
 		ra(la);
 		sa(la);
 	}
-	else if (index1 < index2 && index2 < index0)
+	else if (index1 < index2 && index2 < (*la)->index)
 		ra(la);
 }
 
