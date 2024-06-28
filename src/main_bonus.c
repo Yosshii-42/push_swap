@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yotsurud <yotsurud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 19:50:28 by yotsurud          #+#    #+#             */
-/*   Updated: 2024/06/28 15:23:25 by yotsurud         ###   ########.fr       */
+/*   Updated: 2024/06/28 15:23:07 by yotsurud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,6 @@ void	sort_operation(int size, t_list **la, t_list **lb)
 		operation_6_to_20(la, lb, size);
 	else
 		operation_x(la, lb, size);
-	// char *result;
-	// while (1)
-	// {
-	// 	ft_printf("sa\n");
-	// 	result = get_next_line(0);
-	// 	if (!result)
-	// 		break ;
-	// 	ft_printf("%s", result);
-	// 	free(result);	
-	// }
 }
 
 int	main(int argc, char **argv)
