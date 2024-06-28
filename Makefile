@@ -1,11 +1,9 @@
 NAME		= push_swap
-# NAME_B		= checker
-CFLAGS		= -Wall -Wextra -Werror -g
-# CFLAGS		+= -fsanitize=address
+CFLAGS		= -Wall -Wextra -Werror
 SRC_M		= src/main.c
-# SRC_B		= src/main_bonus.c
 SRCS		= src/initialize_1.c \
 			  src/initialize_2.c \
+			  src/is_function.c \
 			  src/list.c \
 			  src/node_hundling.c \
 			  src/command_p_s.c \
@@ -14,7 +12,6 @@ SRCS		= src/initialize_1.c \
 			  src/operation.c \
 			  src/operation_utils.c 
 OBJ_M		= $(SRC_M:.c=.o)
-# OBJ_B		= $(SRC_B:.c=.o)
 OBJS	    = $(SRCS:.c=.o)
 FRAC_INC    = push_swap.h
 LIBFT	    = ./libft/libft.a
@@ -29,12 +26,6 @@ $(NAME): $(OBJ_M) $(OBJS) $(FRAC_INC)
 %.o: %.c
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-# bonus: $(NAME_B)
-
-# $(NAME_B): $(OBJ_B) $(OBJS) $(FRAC_INC)
-# 	make -C ./libft
-# 	$(CC) $(CFLAGS) $(OBJ_B) $(OBJS) $(LIBFT) -o $(NAME_B)
-
 clean:
 	make fclean -C ./libft
 	rm -f $(OBJS) $(OBJ_M)
@@ -42,5 +33,5 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
-.PHONY: re clean fclean bonus
+.PHONY: re clean fclean
 re: fclean all

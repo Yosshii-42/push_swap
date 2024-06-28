@@ -6,14 +6,17 @@
 /*   By: yotsurud <yotsurud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 19:50:28 by yotsurud          #+#    #+#             */
-/*   Updated: 2024/06/28 15:23:25 by yotsurud         ###   ########.fr       */
+/*   Updated: 2024/06/28 19:01:47 by yotsurud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	sort_operation(int size, t_list **la, t_list **lb)
+void	sort_operation(int size, t_list **la)
 {
+	t_list	*lb;
+
+	lb = NULL;
 	if (size == 2)
 	{
 		if ((*la)->index > (*la)->next->index)
@@ -22,33 +25,21 @@ void	sort_operation(int size, t_list **la, t_list **lb)
 	else if (size == 3)
 		operation_3(la);
 	else if (size == 4)
-		operation_4(la, lb, 0);
+		operation_4(la, &lb, 0);
 	else if (size == 5)
-		operation_5(la, lb);
+		operation_5(la, &lb);
 	else if (size > 5 && size < 20)
-		operation_6_to_20(la, lb, size);
+		operation_6_to_20(la, &lb, size);
 	else
-		operation_x(la, lb, size);
-	// char *result;
-	// while (1)
-	// {
-	// 	ft_printf("sa\n");
-	// 	result = get_next_line(0);
-	// 	if (!result)
-	// 		break ;
-	// 	ft_printf("%s", result);
-	// 	free(result);	
-	// }
+		operation_x(la, &lb, size);
 }
 
 int	main(int argc, char **argv)
 {
 	t_list	*la;
-	t_list	*lb;
 	int		size;
 
 	la = NULL;
-	lb = NULL;
 	if (argc == 1)
 		return (1);
 	if (argc >= 2 && check_argv(argc, argv))
@@ -56,13 +47,13 @@ int	main(int argc, char **argv)
 		make_stack(&la, argc, argv);
 		size = list_size(&la);
 		if (!size)
-			return (ft_putstr_fd("Eerror\n", 1), 1);
+			return (put_error(), 1);
 		if (!check_double(&la))
-			return (ft_error(&la), 1);
+			return (put_error(), ft_free(&la), 1);
 		compression(&la, size);
 		if (check_order(size, &la))
-			return (0);
-		sort_operation(size, &la, &lb);
+			return (ft_free(&la), 0);
+		sort_operation(size, &la);
 		list_clear(&la);
 	}
 	else
@@ -73,13 +64,3 @@ int	main(int argc, char **argv)
 // {
 //     system("leaks -q push_swap");
 // }
-
-	// t_list	*ptr;
-	// ptr = *la;
-	// while ((*la)->num)
-	// {
-	// 	ft_printf("%d\n", (*la)->num);
-	// 	*la = (*la)->next;
-	// 	if (*la == ptr)
-	// 		break ;
-	// }

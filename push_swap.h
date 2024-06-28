@@ -6,7 +6,7 @@
 /*   By: yotsurud <yotsurud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 16:13:02 by yotsurud          #+#    #+#             */
-/*   Updated: 2024/06/28 15:23:45 by yotsurud         ###   ########.fr       */
+/*   Updated: 2024/06/28 17:46:28 by yotsurud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,18 @@ typedef struct s_list
 // check args
 int		check_argv(int argc, char **argv);
 int		check_number(long nbr);
-int		is_space(char c);
 int		check_order(int size, t_list **la);
 int		check_double(t_list **lst);
+int		is_space(char c);
+int		is_sign(char c);
 
 // make stack & tab
 void	compression(t_list **la, int size);
 void	make_stack(t_list **la, int argc, char **argv);
 void	set_new_node(t_list **la, char *str);
-void	ft_error(t_list **lst);
+void	put_error(void);
+void	ft_free(t_list **lst);
+// void	ft_error(t_list **lst);
 
 // list functions
 t_list	*list_new(int number);
@@ -70,7 +73,7 @@ void	rrb(t_list **lb);
 void	rrr(t_list **la, t_list **lb);
 
 // operations
-void	sort_operation(int size, t_list **la, t_list **lb);
+void	sort_operation(int size, t_list **la);
 void	operation_3(t_list **la);
 void	operation_4(t_list **la, t_list **lb, int index);
 void	operation_5(t_list **la, t_list **lb);
