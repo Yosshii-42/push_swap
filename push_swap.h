@@ -6,7 +6,7 @@
 /*   By: yotsurud <yotsurud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 16:13:02 by yotsurud          #+#    #+#             */
-/*   Updated: 2024/07/08 14:52:10 by yotsurud         ###   ########.fr       */
+/*   Updated: 2024/08/20 17:19:50 by yotsurud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 # define PUSH_SWAP_H
 
 # include "libft/includes/libft.h"
-# include "libft/includes/ft_printf.h"
 # include "libft/includes/get_next_line.h"
 # include <stdlib.h>
 # include <unistd.h>
 # include <math.h>
 # include <stdio.h>
+# include <limits.h>
 
 # define MANDATORY	1
 # define BONUS		2
@@ -28,6 +28,7 @@ typedef struct s_list
 {
 	struct s_list	*pre;
 	struct s_list	*next;
+	char			*nbr;
 	int				num;
 	int				index;
 }				t_list;
@@ -35,7 +36,6 @@ typedef struct s_list
 // checks
 int		check_argv(int argc, char **argv);
 int		check_atoi(char *str);
-int		check_number(long nbr);
 int		check_order(int size, t_list **la);
 int		check_double(t_list **lst);
 int		check_index(t_list **lst, int index, int size);
